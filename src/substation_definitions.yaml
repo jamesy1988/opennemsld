@@ -4179,7 +4179,6 @@ substations:
       2: QLD-275-H15-1
       3: QLD-275-H20-H15-833
       4: QLD-275-H15-2
-
   - name: Raglan H73
     lat: -23.75117034247749 
     long: 150.83781563251014
@@ -4391,6 +4390,14 @@ substations:
         connections:
             1: QLD-132-T53-TX2
             2: QLD-22-T53-ERGON_2
+    child_definitions:
+      - def: |
+          x|x
+          t
+          x|x
+        voltage_kv: 22
+        rel_x: 4 
+        rel_y: 9
   - name: Barron Gorge PS
     lat: -16.850578581118945 
     long: 145.64671179191433
@@ -4398,24 +4405,58 @@ substations:
     tags:
       - Barron Gorge
     def: |
-      1
-      2
-    connections:
-      1: QLD-132-T53-T54-7184
-      2: QLD-132-T53-T54-7143
+      N
+    #   1
+    #   2
+    # connections:
+    #   1: QLD-132-T53-T54-7184
+    #   2: QLD-132-T53-T54-7143
     objects:
       - type: tx-ud
         metadata: 
           w1: 22
           w2: 132
+        connections:
+          1: QLD-22-T54-1
+          2: QLD-132-T53-T54-7184
         rel_x: 1
         rel_y: -4
       - type: tx-ud
         metadata: 
           w1: 22
           w2: 132
-        rel_x: 3
+        connections:
+          1: QLD-22-T54-2
+          2: QLD-132-T53-T54-7143
+        rel_x: 5
         rel_y: -4
+    child_definitions:
+      - def: |
+          x|x
+          N
+          x||x
+        voltage_kv: 22
+        rel_x: 0
+        rel_y: -7
+        objects:
+          - type: gen
+            metadata:
+              voltage: 22
+              text: G
+              info: |
+                Barron Gorge Unit 2
+                x MW
+            rel_x: 1
+            rel_y: -4     
+          - type: gen
+            metadata:
+              voltage: 22
+              text: G
+              info: |
+                Barron Gorge Unit 1
+                x MW
+            rel_x: 5
+            rel_y: -4      
   - name: Nebo H11
     lat: -21.631786358834013 
     long: 148.68330096370002
@@ -4435,20 +4476,77 @@ substations:
       1: "1"
       2: "2"
     connections:
-      1: QLD-275-H20-H11-8846
-      2: QLD-275-H11-132-1
-      3: QLD-275-H11-CAP1
-      4: QLD-275-H11-CAP2
-      5: QLD-275-H10-821
-      6: QLD-275-H11-132-2
-      7: QLD-275-H20-H11-8847
-      8: QLD-275-H11-132-3
-      9: QLD-275-H20-H11-834
-      10: QLD-275-H11-H35-822
-      11: QLD-275-H11-SVC1
-      12: QLD-275-H11-H35-8845
-      13: QLD-275-H11-REA1
-      14: QLD-275-H11-H35-878
+      14: QLD-275-H20-H11-8846
+      13: QLD-275-H11-132-6
+      12: QLD-275-H11-CAP1
+      11: QLD-275-H11-CAP2
+      10: QLD-275-H10-821
+      9: QLD-275-H11-132-2
+      8: QLD-275-H20-H11-8847
+      7: QLD-275-H11-132-1
+      6: QLD-275-H20-H11-834
+      5: QLD-275-H11-H35-822
+      4: QLD-275-H11-SVC1
+      3: QLD-275-H11-H35-8845
+      2: QLD-275-H11-REA1
+      1: QLD-275-H11-H35-878
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 132
+          w2: 275
+        rel_x: 10
+        rel_y: -5
+        connections:
+          1: QLD-132-H11-TX6
+          2: QLD-275-H11-132-6
+      - type: tx-ud
+        metadata:
+          w1: 132
+          w2: 275
+        rel_x: 8
+        rel_y: -5
+        connections:
+          1: QLD-132-H11-TX2
+          2: QLD-275-H11-132-2
+      - type: tx-ud
+        metadata:
+          w1: 132
+          w2: 275
+        rel_x: 6
+        rel_y: -5
+        connections:
+          1: QLD-132-H11-TX1
+          2: QLD-275-H11-132-1          
+    child_definitions:
+      - def: |
+          1x|
+          2x|
+          3x|
+          i
+          4x|x5
+          |x6
+          t
+          7x|x8
+          9x|
+          10x|
+          11x|x12
+        voltage_kv: 132
+        rel_x: -3
+        rel_y: -10
+        connections: 
+          1: QLD-132-H11-T141-7304
+          2: QLD-132-H11-T141-7305
+          3: QLD-132-H11-T67-7252
+          4: QLD-132-H11-T106-7176
+          5: QLD-132-H11-TX1
+          6: QLD-132-H11-TX2
+          7: QLD-132-H11-T107-7118
+          8: QLD-132-H11-TX6
+          9: QLD-132-H11-T175-7339
+          10: QLD-132-H11-T65-7119
+          11: QLD-132-H11-T141-7120
+          12: QLD-132-H11-T172-7300
   - name: Calliope River H67
     lat: -23.85602884165558 
     long: 151.19219317467957
@@ -4624,6 +4722,385 @@ substations:
       3: QLD-275-H9-CAP1
       4: QLD-275-H9-TX1
       5: QLD-275-H9-H2-808
+  - name: Walkamin H60
+    lat: -17.18503498928238 
+    long: 145.37972070374522
+    voltage_kv: 275
+    tags:
+      - Walkamin
+      - H60
+    def: |
+      |x1x||
+      |x2x||
+      |EE||x3
+    buses:
+      1: "2"
+      2: "1"
+    connections:
+      1: QLD-275-H60-H39-8902
+      2: QLD-275-H60-H32-876
+      3: QLD-275-H60-H84-8903
+  - name: Ross H13
+    lat: -19.404028715302218 
+    long: 146.72648485529456
+    voltage_kv: 275
+    tags:
+      - Ross
+      - H13
+    def: |
+      |x1dx||
+      2x|ddd|||x3
+      11x|xd4x||
+      |xd5x||
+      |x6x7x||
+      |x8x9x||
+      |dx10x||
+    buses:
+      1: "2"
+      2: "1"
+    connections:
+      1: QLD-275-H13-SVC1
+      2: QLD-275-H13-REA1
+      3: QLD-275-H13-REA2
+      4: QLD-275-H13-H32-857
+      5: QLD-275-H13-H32-858
+      6: QLD-275-H13-TX3
+      7: QLD-275-H13-H35-8858
+      8: QLD-275-H13-TX4
+      9: QLD-275-H13-H35-8857
+      10: QLD-275-H13-H91-8911
+      11: QLD-275-H13-TX2
+  - name: Haughton River H91
+    lat: -19.74173279606866 
+    long: 147.04952133372478
+    voltage_kv: 275
+    tags:
+      - Haughton River
+      - H91
+    def: |
+      |x1dd|||
+      |x2x3x||
+      4|xEN
+    buses:
+      1: "2"
+      2: "1"
+    connections:
+      1: QLD-275-H91-8912
+      2: QLD-275-H91-8913
+      3: QLD-275-H13-H91-8911
+      4: QLD-275-H91-H35-879
+  - name: Chalumbin H32
+    lat: -17.80101167041083 
+    long: 145.52649577876835
+    voltage_kv: 275
+    tags:
+      - Chalumbin
+      - H32
+    def: |
+      |x1x2x||
+      3x|EEE||
+      |x4x5x||
+      |x6x7x||
+    buses:
+      1: "1"
+      2: "2"
+    connections:
+      1: QLD-273-H32-H39-877
+      2: QLD-275-H60-H32-876
+      3: QLD-275-H32-REA1
+      4: QLD-275-H13-H32-857
+      5: QLD-275-H32-TX1
+      6: QLD-275-H13-H32-856
+      7: QLD-275-H32-TX2
+  - name: Strathmore H35
+    lat: -20.499100525251368
+    long:  147.77547293100736
+    voltage_kv: 275
+    tags:
+      - Strathmore
+      - H35
+    def: |
+      |dx1x||x2
+      |dx3x||
+      |x4x5x||
+      |x6x7x||
+      |x8x9x||
+      |x10xd||
+    buses:
+      1: "2"
+      2: "1"
+    connections:
+      1: QLD-275-H35-TX1
+      2: QLD-275-H35-H87-8906
+      3: QLD-275-H13-H35-8858
+      4: QLD-275-H11-H35-878
+      5: QLD-275-H13-H35-8857
+      6: QLD-275-H11-H35-8845
+      7: QLD-275-H91-H35-879
+      8: QLD-275-H11-H35-822
+      9: QLD-275-H35-REA1
+      10: QLD-275-H35-SVC1
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 132
+          w2: 275
+        rel_x: -1
+        rel_y: -3
+        connections:
+          1: QLD-132-H35-TX1
+          2: QLD-275-H35-TX1  
+    child_definitions:
+      - def: |
+          |d||
+          11x|E||
+          |E||x12
+          |E||x13
+          14x|E||x15
+        voltage_kv: 132
+        rel_x: 0
+        rel_y: -10
+        connections:
+          11: QLD-132-H35-TX1
+          12: QLD-132-H35-T242
+          13: QLD-132-H35-T220-7127
+          14: QLD-132-H35-T181-7360
+          15: QLD-132-T193-H35-7208      
+  - name: Clare South T193
+    lat: -19.838419239342866 
+    long: 147.21263760369686
+    voltage_kv: 132
+    tags:
+      - Clare South
+      - T193
+    def: |
+      1x|
+      2x|x3
+      4x|x5
+      t
+      6x||x7
+      ||x8
+    buses:
+      1: "2"
+      2: "1"
+    connections:
+      1: QLD-132-T193-CLARESF1
+      2: QLD-132-T193-CAP1
+      3: QLD-132-T193-T177-7128/2
+      4: QLD-132-T193-TX2
+      5: QLD-132-T193-T36-7130/1
+      6: QLD-132-T193-TX1
+      7: QLD-132-T193-H35-7208
+      8: QLD-132-T193-T56-1731
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 5
+        rel_y: -7
+        connections:
+          1: QLD-66-T193-TX2
+          2: QLD-132-T193-TX2
+      - type: tx-ud
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 9
+        rel_y: -7
+        connections:
+          1: QLD-66-T193-TX1
+          2: QLD-132-T193-TX1 
+      - type: tx-ud
+        metadata:
+          w1: 33
+          w2: 132
+        rel_x: 1
+        rel_y: -7
+        connections:
+          1: QLD-33-T193-CLARESF1
+          2: QLD-132-T193-CLARESF1
+    child_definitions:
+      - def: |
+          |x
+          |
+          |x
+        voltage_kv: 66
+        rel_x: 4
+        rel_y: -9
+      - def: |
+          1x|x2
+        voltage_kv: 33
+        rel_x: 0
+        rel_y: -9
+        objects:
+          - type: gen
+            metadata:
+              voltage_kv: 33
+              text: G
+              info: |
+                Clare  Solar Farm
+                x MW
+            rel_x: 1
+            rel_y: -4
+  - name: King Creek T177
+    lat: -20.365193698681917 
+    long: 147.47284182707395
+    voltage_kv: 132
+    tags:
+      - King Creek
+      - T177
+    def: |
+      1x|2
+    connections:
+      1: QLD-132-T177-7307
+      2: QLD-132-T193-T177-7128/2
+  - name: Crush Creek H87
+    lat: -20.494606973711843 
+    long: 147.77140825807015
+    voltage_kv: 275
+    tags:
+      - Crush Creek
+      - H87
+    def: |
+      1|2
+    connections:
+      1: QLD-275-H87-TX1
+      2: QLD-275-H35-H87-8906
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 33
+          w2: 275
+        rel_x: 1
+        rel_y: -4
+        connections:
+          1: QLD-33-H87-TX1
+          2: QLD-275-H87-TX1
+    child_definitions:
+      - def: |
+          d|x||x|||
+          |x||x|||
+          NENE|||
+          Nx||x|||
+        voltage_kv: 33
+        rel_x: -6
+        rel_y: -10
+        objects:
+          - type: gen
+            metadata:
+              voltage_kv: 33
+              text: G
+              info: |
+                Daydream Solar Farm
+                x MW
+            rel_x: 1
+            rel_y: -4
+          - type: gen
+            metadata:
+              voltage_kv: 33
+              text: G
+              info: |
+                Hayman Solar Farm
+                x MW
+            rel_x: 7
+            rel_y: -1
+  - name: Burton Downs T193
+    lat: -21.74054176307363 
+    long: 148.16775835227529
+    voltage_kv: 132
+    tags:
+      - Burton Downs
+      - T193
+    def: |
+      1x2
+    connections:
+      # 1: QLD-132-T139-TX1
+      2: QLD-132-T139-7117
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 22
+          w2: 132
+        rel_x: 1
+        rel_y: -3
+        # connections:
+          # 1: QLD-132-T139-TX1
+          # 2: QLD-22-T139-TX1
+    child_definitions:
+      - def: |
+          x1
+        voltage_kv: 22
+        rel_x: 0
+        rel_y: -5
+  - name: Bowen North T181
+    lat: -20.018670678396447 
+    long: 148.1673927863598
+    voltage_kv: 132
+    tags:
+      - Bowen North
+      - T181
+    def: |
+      |1
+    connections:
+      1: QLD-132-H35-T181-7360
+  - name: Mindi T172
+    # Queensland Rail substation established in 2007. 132/50kV
+    lat: -21.84197259641974 
+    long: 148.6267274120767
+    voltage_kv: 132
+    tags:
+      - Mindi
+      - T172
+      - Queensland Rail
+    def: |
+      1x|
+      2x|3
+    connections:
+      1: QLD-132-T172-TX1
+      2: QLD-132-T172-TX2
+      3: QLD-132-H11-T172-7300
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 1
+        rel_y: -7
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 3
+        rel_y: -7
+  - name: Bolingbroke T175
+    lat: -21.6444586286722 
+    long: 149.10153232696285
+    voltage_kv: 132
+    tags:
+      - Bolingbroke
+      - T175
+    def: |
+      1x|
+      2x|3
+    connections:
+      1: QLD-132-T175-TX1
+      2: QLD-132-T175-TX2
+      3: QLD-132-H11-T175-7339
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 1
+        rel_y: -7
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 3
+        rel_y: -7
+
   # - name: Western Downs S5 # note - connection point with three new bays
   #   lat: -26.930993966236674
   #   long: 50.73304369727774
