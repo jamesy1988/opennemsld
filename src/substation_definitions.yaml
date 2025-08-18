@@ -4646,8 +4646,8 @@ substations:
       1: "2"
       2: "1"
     connections:
-      1: QLD-275-H6-TX1
-      2: QLD-275-H6-TX2B
+      1: QLD-275-H6-TX2
+      2: QLD-275-H6-TX1
       3: QLD-275-H6-H63-826
       4: QLD-275-H40-H6-819 
       5: QLD-275-H6-H5-816
@@ -4655,6 +4655,46 @@ substations:
       7: QLD-275-H6-H5-815
       8: QLD-275-H67-H6-813
       9: QLD-275-H6-CAP1
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 275
+          w2: 132
+        rel_x: 1
+        rel_y: 3
+        connections:
+          1: QLD-275-H6-TX2
+          2: QLD-132-H6-TX2
+      - type: tx-ud
+        metadata:
+          w1: 275
+          w2: 132
+        rel_x: 1
+        rel_y: -5
+        connections:
+          1: QLD-275-H6-TX1
+          2: QLD-132-H6-TX1
+    child_definitions:
+      - def: |
+          1x|
+          2x|
+          3x|x4
+          /
+          /
+          5x|
+          |x6
+          7x|
+        voltage_kv: 22
+        rel_x: -1
+        rel_y: -10
+        connections:
+          1: QLD-132-H6-7188
+          2: QLD-132-H6-7188
+          3: QLD-132-H6-T20-786
+          4: QLD-132-H6-TX1
+          5: QLD-132-H6-CAP1
+          6: QLD-132-H6-TX1
+          7: QLD-132-H6-T20-7187
   - name: Teebar Creek H63
     lat: -25.690465631075188 
     long: 152.2472045723108
@@ -5016,7 +5056,7 @@ substations:
       1x2
     connections:
       # 1: QLD-132-T139-TX1
-      2: QLD-132-T139-7117
+      2: QLD-132-T139-T67-7117
     objects:
       - type: tx-ud
         metadata:
@@ -5100,8 +5140,212 @@ substations:
           w2: 132
         rel_x: 3
         rel_y: -7
+  - name: Wandoo T106
+    lat: -21.775883924554297 
+    long: 148.8855237642193
+    voltage_kv: 132
+    tags:
+      - Wandoo
+      - T106
+    def: |
+      1x|
+      2x|3
+    connections:
+      1: QLD-132-T106-TX1
+      2: QLD-132-T106-TX2
+      3: QLD-132-H11-T106-7176
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 1
+        rel_y: -7
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 3    
+        rel_y: -7
+  - name: Kemmis T67
+    lat: -21.573635625381048 
+    long: 148.38442086607265
+    voltage_kv: 132
+    tags: 
+      - Kemmis
+      - T67
+    def: |
+      1x|2
+      t
+      3x|4
+      |x5
+    connections:
+      1: QLD-132-H11-T67-7252
+      2: QLD-132-T67-TX1
+      3: QLD-132-T67-CAP1
+      4: QLD-132-T67-TX2
+      5: QLD-132-T139-T67-7117
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 132
+          w2: 66
+        rel_x: 1
+        rel_y: 0
+      - type: tx-ud
+        metadata:
+          w1: 132
+          w2: 66
+        rel_x: 5    
+        rel_y: 0
+      - type: gen
+        metadata:
+          voltage: 132
+          text: CAP
+          info: |
+            Capacitor Bank
+        rel_x: 5
+        rel_y: -5
+  - name: Coppabella T 
+    lat: -21.813252754879237 
+    long: 148.13254500794818
+    voltage_kv: 132
+    def: |
+      1s2
+      s3
+    connections:
+      1: QLD-132-H11-T107-7118
+      2: QLD-132-T221-T107-7118
+      3: QLD-132-T107-7118
+  - name: Coppabella T107
+    lat: -21.913043895954676 
+    long: 148.35282884223213
+    voltage_kv: 132
+    tags:
+      - Coppabella
+      - T107
+    def: |
+      1x|
+      2x|
+      3x|
+      4x|5
+    connections:
+      1: QLD-132-T107-TX5
+      2: QLD-132-T107-TX3
+      3: QLD-132-T107-TX2
+      4: QLD-132-T107-TX1
+      5: QLD-132-T107-7118
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 1
+        rel_y: -7
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 3
+        rel_y: -7
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 5
+        rel_y: -7
+      - type: tx-ud
+        metadata:
+          w1: 50
+          w2: 132
+        rel_x: 7
+        rel_y: -7
+      - type: gen
+        metadata:
+          voltage: 50
+          text: SVC
+          info: |
+            Coppabella SVC
+            MVAr/ MVAr
+        rel_x: 1
+        rel_y: -8
+  - name: Wotonga T221
+    lat: -21.937268287724283 
+    long: 148.09611537541218
+    voltage_kv: 132
+    tags:
+      - Wotonga
+      - T221
+    def: |
+      1x|EE||
+      |E2x||x3
+      |dx||
+      4x|x5E||
+    buses:
+      1: "2"
+      2: "1"
+    connections:
+      1: QLD-132-T221-1
+      2: QLD-132-T221-2
+      3: QLD-132-T221-T34-7413
+      4: QLD-132-T221-SVC1
+      5: QLD-132-T221-T107-7118
+    objects:
+      - type: gen
+        metadata:
+          voltage: 132
+          text: SVC
+          info: |
+            Gregory SVC
+            MVAr/ MVAr
+        rel_x: 7
+        rel_y: -4
+  - name: Boat Creek T130
+    lat: -23.830796926969008 
+    long: 151.16540394056082
+    voltage_kv: 132
+    def: |
+      1x2
+      3x4
+    connections:
+      1: QLD-132-T130-TX1
+      2: QLD-132-T199-T130-7290
+      3: QLD-132-T130-TX2
+      4: QLD-132-T199-T130-7291
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 0
+        rel_y: -7
+        connections:
+          1: QLD-66-T130-TX1
+          2: QLD-132-T130-TX1
+      - type: tx-ud
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 2
+        rel_y: -7
+        connections:
+          1: QLD-66-T130-TX2
+          2: QLD-132-T130-TX2
+    child_definitions:
+      - def: |
+          |x1
+          i
+          i
+          |x2
+        voltage_kv: 66
+        rel_x: 0
+        rel_y: -12
+        connections:
+          1: QLD-66-T130-TX1
+          2: QLD-66-T130-TX2
 
-  # - name: Western Downs S5 # note - connection point with three new bays
+
+  # - name: Western Downs S5 # note - connection point with three new bays for WDGH
   #   lat: -26.930993966236674
   #   long: 50.73304369727774
   #   voltage_kv: 275
