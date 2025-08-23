@@ -730,8 +730,8 @@ substations:
           11x|
           12x|
           13x|x14
-          /
-          /
+          i
+          i
           15x|
           |x16
           17x|
@@ -1417,7 +1417,7 @@ substations:
       5: QLD-275-S5-S2-8867
       6: Empty
       7: QLD-275-S5-H60-8904
-      8: QLD-25-S5-KPP_1-8865
+      8: QLD-275-S5-H52-8865
   - name: Coopers Gap H60
     lat: -26.735338140387576 
     long: 151.47453862790132
@@ -1446,7 +1446,7 @@ substations:
       - R4
     def: |
       |x1x2x||
-      |EEE||3
+      |EEE||x3
       |x4x5x||
       |x6x7x||
     buses:
@@ -1460,6 +1460,15 @@ substations:
       5: QLD-330-R4-R5-9905
       6: QLD-330-R4-H14-9907
       7: QLD-330-R4-R3-9903
+    objects:
+      - type: gen
+        metadata:
+          voltage: 330
+          text: CAP
+          info: |
+              Capacitor Bank
+        rel_x: 3
+        rel_y: 13
   - name: Millmerran PS R5
     lat: -27.962573091073036 
     long: 151.27891770907317
@@ -1539,6 +1548,162 @@ substations:
       2: QLD-330-R2-R3-9901
       3: QLD-330-R2-TX2
       4: QLD-330-R2-R3-9902
+    objects:
+      - type: tx-ud  
+        metadata:
+          w1: 275
+          w2: 330
+        rel_x: -1
+        rel_y: -5
+        connections:
+          1: QLD-275-R2-TX1
+          2: QLD-330-R2-TX1
+      - type: tx-ud
+        metadata:
+          w1: 275
+          w2: 330
+        rel_x: 7
+        rel_y: -5
+        connections:
+          1: QLD-275-R2-TX2
+          2: QLD-330-R2-TX2
+    child_definitions:
+      - def: |
+          |x1xd||
+          |x2xd||
+          |x3x4x||
+          |x5x6x||
+          x7|EEE||
+          |x8x9x||
+          |x10xd||
+          NEN
+          |x11xd||
+          |x12x13x||
+          |x14xd||
+          |x15xd||
+          |x16xd||
+          |x17xd||        
+        voltage_kv: 275
+        rel_x: -11
+        rel_y: -15
+        connections:
+          1: QLD-275-R2-H48-8841
+          2: QLD-275-R2-H48-8840
+          3: QLD-275-R2-H74-8839
+          4: QLD-275-R2-H75-8883
+          5: QLD-275-R2-H74-8838
+          6: QLD-275-R2-H75-8882
+          7: QLD-275-R2-CAP1
+          8: QLD-275-R2-S2-8814
+          9: QLD-275-R2-TX1
+          10: QLD-275-R2-S2-8815
+          11: QLD-275-S5-R2-8820
+          12: QLD-275-S5-R2-8864
+          13: QLD-275-R2-TX2
+          14: QLD-275-R2-DDSF1-8863
+          15: QLD-275-R2-H071-8862
+          16: QLD-275-R2-H071-8861
+          17: QLD-275-R2-H071-8860
+        objects:
+          - type: tx-ud
+            metadata:
+              w1: 275
+              w2: 33
+            rel_x: 23
+            rel_y: 10
+            connections:
+              1: QLD-275-R2-DDSF1-8863
+              2: QLD-33-DDSF1
+          - type: tx-ud
+            metadata:
+              w1: 22
+              w2: 275
+            rel_x: 23
+            rel_y: -5
+            connections:
+              1: QLD-22-R2-TX3
+              2: QLD-275-R2-H071-8862             
+          - type: tx-ud
+            metadata:
+              w1: 22
+              w2: 275
+            rel_x: 25
+            rel_y: -5
+            connections:
+              1: QLD-22-R2-TX2
+              2: QLD-275-R2-H071-8862              
+          - type: tx-ud
+            metadata:
+              w1: 22
+              w2: 275
+            rel_x: 27
+            rel_y: -5
+            connections:
+              1: QLD-22-R2-TX1
+              2: QLD-275-R2-H071-8861   
+          - type: tx-ud
+            metadata:
+              w1: 22
+              w2: 275
+            rel_x: 29
+            rel_y: -5
+            connections:
+              1: QLD-22-R2-TX4
+              2: QLD-275-R2-H071-8860                 
+          - type: gen
+            metadata:
+              voltage: 275
+              text: CAP
+              info: |
+                  Capacitor Bank
+            rel_x: 10
+            rel_y: -4
+        # child_definitions:
+        #   - def: |
+        #       1x|x2
+        #     voltage_kv: 33
+        #     rel_x: 0
+        #     rel_y: 0
+        #     connections:
+        #       1: QLD-33-DDSF1
+        #       2:   
+  - name: Darling Downs Solar Farm 
+    lat: -27.12065012121213 
+    long: 150.89449526252687
+    voltage_kv: 33
+    def: |
+      1x|x2
+    connections:
+      1: QLD-33-DDSF1
+    objects:
+      - type: gen
+        metadata:
+          voltage: 33
+          text: G
+          info: |
+            Darling Downs Solar Farm
+            x MW # todo update MW
+        rel_x: 1
+        rel_y: 4
+  - name: Darling Downs Power Station H071
+    lat: -27.11189089685507 
+    long: 150.90723380234263 
+    voltage_kv: 22
+    def: |
+      1x2
+      3x4
+      5x6
+      7x8
+    connections:
+      1:
+      2: QLD-22-R2-TX3
+      3:
+      4: QLD-22-R2-TX2
+      5:
+      6: QLD-22-R2-TX1
+      7:
+      8: QLD-22-R2-TX4
+  
   - name: Bulli Creek R3
     lat: -27.9211170606382 
     long: 150.84329054832523
@@ -1552,10 +1717,271 @@ substations:
       |x4x5x||
       |x6x7x||
     connections:
-      1: QLD-330-R3-CAP1
+      1: QLD-330-R3-TX1
       2: QLD-330-R2-R3-9901
       3: QLD-330-R3-Dumeresq-8L #QNI
       4: QLD-330-R2-R3-9902
       5: QLD-330-R3-Dumeresq-8M #QNI
       6: QLD-330-R4-R3-9904
       7: QLD-330-R4-R3-9903
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 132
+          w2: 330
+        rel_x: 1
+        rel_y: -6
+        connections:
+          1: QLD-122-R3-TX1
+          2: QLD-330-R3-TX1
+    child_definitions:
+      - def: |
+          x11
+        voltage_kv: 132
+        rel_x: 0
+        rel_y: -9  
+        connections:
+          11: QLD-122-R3-TX1
+  - name: Kogan Creek PS H52 # todo add Chinchilla BESS
+    lat: -26.918656223783415 
+    long: 150.74809649791263
+    voltage_kv: 275
+    tags:
+      - Kogan Creek PS
+      - H52
+    def: |
+      1x2
+    connections:
+      1: QLD-275-H52-TX1
+      2: QLD-275-S5-H52-8865
+    objects:
+        - type: tx-ud
+          metadata:
+            w1: 22
+            w2: 275
+          rel_x: 1
+          rel_y: -4
+    child_definitions:
+      - def: |
+          11x
+        voltage_kv: 22
+        rel_x: 0
+        rel_y: -6  
+        connections:
+          11: QLD-22-H52-TX1
+        objects:
+        - type: gen
+          metadata:
+            voltage: 22
+            text: G
+            info: |
+              Kogan Creek PS
+              KPP_1
+              784MW
+          rel_x: 1
+          rel_y: -1
+  - name: Orana H78
+    lat: -26.893205891283564
+    long: 150.55053670593784
+    voltage_kv: 275
+    tags:
+      - Orana
+      - H78
+    def: |
+      |x1x2x||
+      |dx3x||
+      |dx4x||
+    connections:
+      1: QLD-275-S5-H78-8889
+      2: QLD-275-H78-H77-8893
+      3: QLD-275-H78-H83-TX2
+      4: QLD-275-H78-H83-TX1
+  - name: APLNG Orana H83
+    lat: -26.88910212929379 
+    long: 150.5461311976183
+    voltage_kv: 275
+    tags:
+      - APLNG Orana
+      - H83
+    def: |
+      1
+      2
+    connections:
+      1: 
+      2: 
+    objects:
+        - type: tx-ud
+          metadata:
+            w1: 22
+            w2: 275
+          rel_x: 1
+          rel_y: 0
+          connections:
+            2: QLD-275-H78-H83-TX2
+            1: QLD-22-H83-TX2 
+        - type: tx-ud
+          metadata:
+            w1: 22
+            w2: 275
+          rel_x: 5
+          rel_y: 0
+          connections:
+            2: QLD-275-H78-H83-TX1
+            1: QLD-22-H83-TX1 
+    child_definitions:
+      - def: |
+          1x|
+          i
+          2x|
+        voltage_kv: 22
+        rel_x: 0
+        rel_y: 0 
+  - name: Wandoan South H76 #todo Gangarri Solar Farm, Wandoan BESS, Wandoan Solar Farm
+    lat: -26.268846715429238 
+    long: 149.76936155785862
+    voltage_kv: 275
+    tags:
+      - Wandoan South
+      - H76
+    buses:
+      1: "1"
+      2: "2"
+    def: |
+      |dx1x||
+      |dx2x||
+      |x3x4x||
+      |dx5x||
+      |dx6x||
+    connections:
+      1: QLD-275-H76-H79-8898
+      2: QLD-275-H76-H79-8899
+      3: QLD-275-H76-H77-8891
+      4: QLD-275-H76-TX1
+      5: QLD-275-H76-H77-8892
+      6: QLD-275-H76-TX2
+    objects:
+      - type: tx-ud  
+        metadata:
+          w1: 275
+          w2: 132
+        rel_x: 4
+        rel_y: 10
+        connections:
+          2: QLD-132-H76-TX1
+          1: QLD-275-H76-TX1
+      - type: tx-ud
+        metadata:
+          w1: 275
+          w2: 132
+        rel_x: 8
+        rel_y: 10
+        connections:
+          2: QLD-132-H76-TX2
+          1: QLD-275-H76-TX2
+    child_definitions:
+      - def: |
+          |x||
+          |E11||x12
+          13x|14E||
+          |E||x15
+        voltage_kv: 132
+        rel_x: 2
+        rel_y: 17
+        connections:
+          11: QLD-132-H76-TX1
+          12: QLD-132-H76-T219-7396
+          13: QLD-132-H76-TX2
+          14: QLD-132-H76-T219-7397
+          15: QLD-132-H76-TX5
+        objects:
+          - type: tx-ud
+            metadata:
+              w1: 132
+              w2: 66
+            rel_x: 7
+            rel_y: 5
+            connections:
+              1: QLD-132-H76-TX5
+  - name: Woleebee Creek T219 # todo - substation twice the size of 2019 AEMO data
+    lat: -26.28675980497637 
+    long: 149.70699813711823
+    voltage_kv: 132
+    tags:
+      - Woleebee Creek
+      - T219
+    def: |
+      |x1x2x||
+      |x3x4x||
+    buses:
+      1: "1"
+      2: "2"
+    connections:
+      1: QLD-132-H76-T219-7396
+      2:
+      3: QLD-132-H76-T219-7397
+      4:
+  - name: Columboola H77 # todo add Coolumbula solar farm
+    lat: -26.649281019095838
+    long: 150.2805889423746
+    voltage_kv: 275
+    tags:
+      - Columboola
+      - H77
+    def: |
+      |x1xd||
+      |x2x3x||
+      |x4x5x||
+      |x6xd||
+    connections:
+      1: QLD-275-S5-H77-8890
+      2: QLD-275-H76-H77-8892
+      3: QLD-275-H77-TX3
+      4: QLD-275-H76-H77-8891
+      5: QLD-275-H77-TX2
+      6: QLD-275-H78-H77-8893
+    objects:
+      - type: tx-ud  
+        metadata:
+          w1: 275
+          w2: 132
+        rel_x: 4
+        rel_y: 10
+        connections:
+          1: QLD-275-H77-TX3
+          2: QLD-132-T194-TX3
+      - type: tx-ud
+        metadata:
+          w1: 275
+          w2: 132
+        rel_x: 8
+        rel_y: 10
+        connections:
+          1: QLD-275-H77-TX2
+          2: QLD-132-T194-TX2
+    child_definitions:
+      - def: |
+          |xd||
+          |x1E||
+          |EE||x3
+          |x4E||
+          5x|x6E||
+          |EE||x7
+          8x|x9E||
+          |EE||x10
+          |EE||x11
+          |x12E||
+        voltage_kv: 132
+        rel_x: -7
+        rel_y: 18
+        connections:
+          1: QLD-132-T194-T83-7174
+          3: QLD-132-T194-T83-7164
+          4: 
+          5: QLD-132-T194-TX3
+          6: QLD-132-T194-T13-7350
+          7: QLD-132-T194-T13-7349
+          8: QLD-132-T194-TX2
+          9: QLD-132-T194-T216-7399
+          10: QLD-132-T194-T216-7398
+          11: QLD-131-T194-T200-7356
+          12: QLD-131-T194-T200-7355
