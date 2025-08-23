@@ -21,6 +21,7 @@ Currently, only parts of Victoria have been implemented. More regions of the Nat
 
 - **AEMO NEM SLDs**: The Australian Energy Market Operator used to publish [NEM SLDs](https://web.archive.org/web/20220119012004if_/https://aemo.com.au/-/media/files/electricity/nem/planning_and_forecasting/maps/nem-slds.pdf) but these haven't been updated since 2019
 - **Open Infrastructure Map**: [Open Infrastructure Map](https://openinframap.org/#6.89/-36.804/144.698) has been used for some geographic data
+- **Digital Atlas Australia**: [Transmission Substations map](https://digital.atlas.gov.au/datasets/d5eae2d7c9e54581a5f19d7e95b9883b_0/explore?location=-29.529803%2C-33.951534%2C3.98) has also been used for some geographic data
 
 ## Usage
 
