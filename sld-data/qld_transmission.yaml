@@ -709,43 +709,43 @@ substations:
     objects:
       - type: tx-ud
         metadata:
-          w1: 275
-          w2: 132
-        rel_x: 1
-        rel_y: 3
+          w1: 132
+          w2: 275
+        rel_x: -3
+        rel_y: -6
         connections:
-          1: QLD-275-H6-TX2
-          2: QLD-132-H6-TX2
+          2: QLD-275-H6-TX2
+          1: QLD-132-H6-TX2
       - type: tx-ud
         metadata:
-          w1: 275
-          w2: 132
-        rel_x: 1
-        rel_y: -5
+          w1: 132
+          w2: 275
+        rel_x: -5
+        rel_y: -6
         connections:
-          1: QLD-275-H6-TX1
-          2: QLD-132-H6-TX1
+          2: QLD-275-H6-TX1
+          1: QLD-132-H6-TX1
     child_definitions:
       - def: |
-          1x|
-          2x|
-          3x|x4
+          11x|
+          12x|
+          13x|x14
           /
           /
-          5x|
-          |x6
-          7x|
-        voltage_kv: 22
+          15x|
+          |x16
+          17x|
+        voltage_kv: 132
         rel_x: -1
         rel_y: -10
         connections:
-          1: QLD-132-H6-7188
-          2: QLD-132-H6-7188
-          3: QLD-132-H6-T20-786
-          4: QLD-132-H6-TX1
-          5: QLD-132-H6-CAP1
-          6: QLD-132-H6-TX1
-          7: QLD-132-H6-T20-7187
+          11: QLD-132-H6-7188
+          12: QLD-132-H6-7188
+          13: QLD-132-H6-T20-786
+          14: QLD-132-H6-TX2
+          15: QLD-132-H6-CAP1
+          16: QLD-132-H6-TX1
+          17: QLD-132-H6-T20-7187
   - name: Teebar Creek H63
     lat: -25.690465631075188 
     long: 152.2472045723108
@@ -1042,7 +1042,7 @@ substations:
       - King Creek
       - T177
     def: |
-      1x|2
+      2|x1
     connections:
       1: QLD-132-T177-7307
       2: QLD-132-T193-T177-7128/2
@@ -1145,8 +1145,8 @@ substations:
       - T172
       - Queensland Rail
     def: |
-      1x|
-      2x|3
+      |x1
+      3|x2
     connections:
       1: QLD-132-T172-TX1
       2: QLD-132-T172-TX2
@@ -1154,16 +1154,16 @@ substations:
     objects:
       - type: tx-ud
         metadata:
-          w1: 50
-          w2: 132
+          w1: 132
+          w2: 50
         rel_x: 1
-        rel_y: -7
+        rel_y: 3
       - type: tx-ud
         metadata:
-          w1: 50
-          w2: 132
+          w1: 132
+          w2: 50
         rel_x: 3
-        rel_y: -7
+        rel_y: 3
   - name: Bolingbroke T175
     lat: -21.6444586286722 
     long: 149.10153232696285
@@ -1172,8 +1172,8 @@ substations:
       - Bolingbroke
       - T175
     def: |
-      1x|
-      2x|3
+      |x1
+      3|x2
     connections:
       1: QLD-132-T175-TX1
       2: QLD-132-T175-TX2
@@ -1181,16 +1181,16 @@ substations:
     objects:
       - type: tx-ud
         metadata:
-          w1: 50
-          w2: 132
+          w1: 132
+          w2: 50
         rel_x: 1
-        rel_y: -7
+        rel_y: 3
       - type: tx-ud
         metadata:
-          w1: 50
-          w2: 132
+          w1: 132
+          w2: 50
         rel_x: 3
-        rel_y: -7
+        rel_y: 3
   - name: Wandoo T106
     lat: -21.775883924554297 
     long: 148.8855237642193
@@ -1199,8 +1199,8 @@ substations:
       - Wandoo
       - T106
     def: |
-      1x|
-      2x|3
+      |x1
+      3|x2
     connections:
       1: QLD-132-T106-TX1
       2: QLD-132-T106-TX2
@@ -1208,16 +1208,16 @@ substations:
     objects:
       - type: tx-ud
         metadata:
-          w1: 50
-          w2: 132
+          w1: 132
+          w2: 50
         rel_x: 1
-        rel_y: -7
+        rel_y: 3
       - type: tx-ud
         metadata:
-          w1: 50
-          w2: 132
-        rel_x: 3    
-        rel_y: -7
+          w1: 132
+          w2: 50
+        rel_x: 3
+        rel_y: 3
   - name: Kemmis T67
     lat: -21.573635625381048 
     long: 148.38442086607265
@@ -1396,7 +1396,7 @@ substations:
           2: QLD-66-T130-TX2
   - name: Western Downs S5 # note - connection point with three new bays for WDGH
     lat: -26.930993966236674
-    long: 50.73304369727774
+    long: 150.73304369727774
     voltage_kv: 275
     tags:
       - Western Downs
@@ -1426,9 +1426,9 @@ substations:
       - Coopers Gap
       - H60
     def: |
-      |E||1
-      |x2x3||
-      |d4x||
+      |EEE||1
+      |x2x3x||
+      |dd4x||
     buses:
       1: "2"
       2: "1"
@@ -1437,7 +1437,125 @@ substations:
       2: QLD-275-S5-COOPGWF1-TX2
       3: QLD-275-S5-S2-8866
       4: QLD-275-S5-COOPGWF1-TX1
-
-      
-    
-    
+  - name: Millmerran R4
+    lat: -27.965132439059357 
+    long: 151.27439339268625
+    voltage_kv: 330
+    tags:
+      - Millmerran
+      - R4
+    def: |
+      |x1x2x||
+      |EEE||3
+      |x4x5x||
+      |x6x7x||
+    buses:
+      1: "2"
+      2: "1"
+    connections:
+      1: QLD-330-R4-R5-9906
+      2: QLD-330-R4-R3-9904
+      3: QLD-330-R4-CAP1
+      4: QLD-330-R4-H14-9908
+      5: QLD-330-R4-R5-9905
+      6: QLD-330-R4-H14-9907
+      7: QLD-330-R4-R3-9903
+  - name: Millmerran PS R5
+    lat: -27.962573091073036 
+    long: 151.27891770907317
+    voltage_kv: 330
+    tags:
+      - Millmerran PS
+      - R5
+    def: |
+      1
+      2
+    connections:
+      1: 
+      2: 
+    objects:
+      - type: tx-ud
+        metadata:
+          w1: 22
+          w2: 330
+        rel_x: 0
+        rel_y: 0
+        connections:
+          1: QLD-22-R5-TX2
+          2: QLD-330-R4-R5-9906
+      - type: tx-ud
+        metadata:
+          w1: 22
+          w2: 330
+        rel_x: 2
+        rel_y: 0
+        connections:
+          1: QLD-22-R5-TX1
+          2: QLD-330-R4-R5-9905
+    child_definitions:
+      - def: |
+          x11
+          x12
+        voltage_kv: 22
+        rel_x: -1
+        rel_y: -3  
+        connections:
+          11: QLD-22-R5-TX2
+          12: QLD-22-R5-TX3
+        objects:
+        - type: gen
+          metadata:
+            voltage: 22
+            text: G
+            info: |
+              Millmerran Unit 2
+              MPP_2
+              425MW
+          rel_x: 0
+          rel_y: -1    
+        - type: gen
+          metadata:
+            voltage: 22
+            text: G
+            info: |
+              Millmerran Unit 1
+              MPP_1
+              425MW
+          rel_x: 2
+          rel_y: -1    
+  - name: Braemar R2 
+    lat: -27.11543240057788 
+    long: 150.9000261848199
+    voltage_kv: 330
+    tags:
+      - Braemar
+      - R2
+    def: |
+      |x1x2x||
+      |x3dd||
+      |4N
+    connections:
+      1: QLD-330-R2-TX1
+      2: QLD-330-R2-R3-9901
+      3: QLD-330-R2-TX2
+      4: QLD-330-R2-R3-9902
+  - name: Bulli Creek R3
+    lat: -27.9211170606382 
+    long: 150.84329054832523
+    voltage_kv: 330
+    tags:
+      - Bulli Creek
+      - R3
+    def: |
+      1x|EEE||
+      |x2x3x||
+      |x4x5x||
+      |x6x7x||
+    connections:
+      1: QLD-330-R3-CAP1
+      2: QLD-330-R2-R3-9901
+      3: QLD-330-R3-Dumeresq-8L #QNI
+      4: QLD-330-R2-R3-9902
+      5: QLD-330-R3-Dumeresq-8M #QNI
+      6: QLD-330-R4-R3-9904
+      7: QLD-330-R4-R3-9903
