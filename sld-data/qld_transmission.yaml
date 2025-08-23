@@ -1,3 +1,4 @@
+substations:
   - name: Gladstone South T19
     lat: -23.8848381
     long: 151.27394741
@@ -1393,8 +1394,6 @@
         connections:
           1: QLD-66-T130-TX1
           2: QLD-66-T130-TX2
-
-
   - name: Western Downs S5 # note - connection point with three new bays for WDGH
     lat: -26.930993966236674
     long: 50.73304369727774

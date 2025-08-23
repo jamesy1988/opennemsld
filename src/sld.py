@@ -20,7 +20,7 @@ from rectangle_spacing import space_rectangles
 
 # --- Constants ---
 BASE_MAP_DIMS_EAST_WEST = 45000  # Base dimensions, will be expanded as needed
-BASE_MAP_DIMS_NORTH_SOUTH = 22000
+BASE_MAP_DIMS_NORTH_SOUTH = 45000
 BUS_LABEL_FONT_SIZE = 15
 TITLE_MAX_SEARCH_RADIUS_PX = 300
 TITLE_FONT_SIZE = 20
