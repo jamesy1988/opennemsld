@@ -1658,15 +1658,15 @@ substations:
                   Capacitor Bank
             rel_x: 10
             rel_y: -4
-        # child_definitions:
-        #   - def: |
-        #       1x|x2
-        #     voltage_kv: 33
-        #     rel_x: 0
-        #     rel_y: 0
-        #     connections:
-        #       1: QLD-33-DDSF1
-        #       2:   
+        child_definitions:
+          - def: |
+              1x|x2
+            voltage_kv: 33
+            rel_x: 0
+            rel_y: 0
+            connections:
+              1: QLD-33-DDSF1
+              2:   
   - name: Darling Downs Solar Farm 
     lat: -27.12065012121213 
     long: 150.89449526252687
@@ -1985,3 +1985,241 @@ substations:
           10: QLD-132-T194-T216-7398
           11: QLD-131-T194-T200-7356
           12: QLD-131-T194-T200-7355
+  - name: Abermain H062
+    lat: -27.577143799598076
+    long: 152.77167994472944
+    voltage_kv: 275
+    tags:
+      - Abermain
+      - H062
+    def: |
+      |x1x2x||
+      |x3xd||
+    buses:
+      1: "1"
+      2: "2"
+    connections:
+      1: QLD-275-H062-H72-8844
+      2: QLD-275-H062-TX4
+      3: QLD-275-H062-H12-8823
+  - name: Goodna H38
+    lat: -27.620475317780762 
+    long: 152.87832371281732
+    voltage_kv: 275
+    tags:
+      - Goodna
+      - H38
+    def: |
+      |x1xd||
+      |x2x3x||
+    buses:
+      1: "1"
+      2: "2"
+    connections:
+      1: QLD-275-H38-H36-8819
+      2: QLD-275-H38-TX1
+      3: QLD-275-H38-H3-8842
+  - name: Blackstone H72
+    lat: -27.64908244764221 
+    long: 152.81213422010094
+    voltage_kv: 275
+    tags:
+      - Blackstone
+      - H72
+    def: |
+      |x1xd||
+      |x2xd||
+      |x3x4x||
+      |x5x6x||
+      |x7xd||
+    connections:
+      1: QLD-275-H72-H51-8826
+      2: QLD-275-H72-S3-8888
+      3: QLD-275-H72-S3-8887 
+      4: QLD-275-H72-H36-8821
+      5: QLD-275-H72-TX2
+      6: QLD-275-H062-H72-8844
+      7: QLD-275-H72-TX1
+    buses:
+      1: "2"
+      2: "1"
+  - name: Mudgeeraba H4
+    lat: -28.09381297712308 
+    long: 153.39703784753098
+    voltage_kv: 275
+    tags:
+      - Mudgeeraba
+      - H4
+    def: |
+      |x1xd||
+      |x2EE||
+      |x3x4x||
+      |x5x6x||
+    connections:
+      1: QLD-275-H4-TX1
+      2: QLD-275-H4-CAP1
+      3: QLD-275-H4-TX3
+      4: QLD-275-H4-S3-835
+      5: QLD-275-H4-TX5
+      6: QLD-275-H4-S3-836
+  - name: Loganlea H22
+    lat: -27.66405831608094 
+    long: 153.13058743583574
+    voltage_kv: 275
+    tags:
+      - Loganlea
+      - H22
+    def: |
+      |x1x2x||
+      3|EEE||
+      |x4dd||
+    connections:
+      1: QLD-275-H22-TX4
+      2: QLD-275-H22-H3-829
+      3: QLD-275-H22-S3-8813
+      4: QLD-275-H22-TX5
+  - name: Belmont H3  # todo check for fourth CAP bank
+    lat: -27.53785280552299 
+    long: 153.11469909851684
+    voltage_kv: 275
+    tags:
+      - Belmont
+      - H3
+    def: |
+      1x|x2x3x||
+      |x4x5x||
+      |x6x7x||
+      8x|x9x10x||
+      11x|x12x13x||x14
+    connections:
+      1: QLD-275-H3-CAP4
+      2: QLD-275-H3-TX6
+      3: QLD-275-H3-H21-830
+      4: QLD-275-H22-H3-829
+      5: QLD-275-H3-H21-8837
+      6: QLD-275-H3-S3-8822
+      7: QLD-275-H3-TX4
+      8: QLD-275-H3-CAP9
+      9: QLD-275-H38-H3-8842
+      10: QLD-275-H3-TX3
+      11: QLD-275-H3-CAP10
+      12: QLD-275-H3-H36-817
+      13: QLD-275-H3-TX2
+      14: QLD-275-H3-CAP14
+  - name: Mt England H12
+    lat: -27.382990484081787 
+    long: 152.64726640640953
+    voltage_kv: 275
+    tags:
+      - Mt England
+      - H12
+    def: |
+      |dx1x||
+      |x2x3x||
+      |x4x5x||
+      |x6EE||
+      |EE7x||
+      |x8E9x||
+    connections:
+      1: QLD-275-H12-H2-825
+      2: QLD-275-H12-H36-802
+      3: QLD-275-H12-H18-8812
+      4: QLD-275-H062-H12-8823
+      5: QLD-275-H12-H18-837
+      6: QLD-275-H12-H28-824
+      7: QLD-275-H12-H28-823
+      8: QLD-275-H12-CAP2
+      9: QLD-275-H12-CAP1
+    buses:
+      1: "2"
+      2: "1"
+  - name: Blackwall H36
+    lat: -27.541288416746028 
+    long: 152.78601944136773
+    voltage_kv: 275
+    tags:
+      - Blackwall
+      - H36
+    def: |
+      |dx1x||
+      |x2x3x||
+      |x4x5x||
+      |x6xx||
+      |x7x8x||
+      |xx9x||
+      |x10E11x||
+    connections:
+      1: QLD-275-H36-SVC1
+      2: QLD-275-H36-H2-838
+      3: QLD-275-H36-H18-827
+      4: QLD-275-H36-H16-8818
+      5: QLD-275-H36-H18-875
+      6: QLD-275-H3-H36-817
+      7: QLD-275-H38-H36-8819
+      8: QLD-275-H12-H36-802
+      9: QLD-275-H72-H36-8821
+      10: QLD-275-H36-CAP6
+      11: QLD-275-H36-CAP5
+  - name: Middle Ridge H14
+    lat: -27.623061591016906 
+    long: 151.94663723943864
+    voltage_kv: 275
+    tags:
+      - Middle Ridge
+      - H14
+    def: |
+      |x1x2x||
+      |x3x4x||
+      |x5x6x||
+      |x7x8x||
+    connections:
+      1: QLD-275-H14-TX2
+      2: QLD-275-H14-TX3
+      3: QLD-275-H14-TX1
+      4: QLD-275-H14-H27-831
+      5: QLD-275-H14-TX4
+      6: QLD-275-H14-S3-8848
+      7: QLD-275-H14-TX5
+      8: QLD-275-H14-S3-8849
+    buses:
+      1: "2"
+      2: "1"
+  - name: Greenbank S3
+    lat: -27.732113957206543 
+    long: 152.956977146972
+    voltage_kv: 275
+    tags:
+      - Greenbank
+      - S3
+    def: |
+      |x1x2x||
+      |x3x4x||
+      |x5x6x||
+      |x7x8x||
+      |dx9x||
+      |dx10x||
+      |x11x12x||
+      |dx13x||
+      14x|EEE||
+      15x|EEE||x16
+      17x|EEE||x18
+    connections:
+      1: QLD-275-S3-H31-8824
+      2: QLD-275-H22-S3-8813
+      3: QLD-275-S3-H31-8825
+      4: QLD-275-H3-S3-8822
+      5: QLD-275-H4-S3-835
+      6: QLD-275-S3-H51-805
+      7: QLD-275-H4-S3-836
+      8: QLD-275-S3-- 
+      9: QLD-275-H72-S3-8888
+      10: QLD-275-H72-S3-8887
+      11: QLD-275-S3-SVC1
+      12: QLD-275-H14-S3-8849
+      13: QLD-275-H14-S3-8848
+      14: QLD-275-S3-CAP6
+      15: QLD-275-S3-CAP4
+      16: QLD-275-S3-CAP3
+      17: QLD-275-S3-CAP8
+      18: QLD-275-S3-CAP5
+  
