@@ -2330,7 +2330,6 @@ substations:
       |x11x12x||
       |x13x14x||
       |x15x16x||
-
     connections:
       1: QLD-275-H2-CAP8
       2: QLD-275-H2-CAP9
@@ -2348,6 +2347,76 @@ substations:
       14: QLD-275-H36-H2-838
       15: QLD-275-H2-SVC1
       16: QLD-275-H2-H16-809
-  
-
-
+  - name: Roma T83 and Roma PS
+    lat: -26.578311450951766
+    long: 148.83962295707013
+    voltage_kv: 132
+    tags:
+      - Roma
+      - Roma PS
+      - T83
+    buses:
+      1: "1"
+      2: "2"
+    def: |
+      E1x|
+      2xx|x3  
+      t
+      4xx|x5
+      Ex6|
+    connections:
+      1: QLD-132-T83-TX1
+      2: QLD-132-T83-ROMA_7
+      3: QLD-132-T194-T83-7164
+      4: QLD-132-T83-ROMA_8
+      5: QLD-132-T194-T83-7174
+      6: QLD-132-T83-TX2
+    objects:
+      - type: tx-ud  
+        metadata:
+          w1: 22
+          w2: 132
+        rel_x: 3
+        rel_y: -9
+        connections:
+          1: QLD-22-ROMA_7
+          2: QLD-132-T83-ROMA_7
+      - type: tx-ud  
+        metadata:
+          w1: 22
+          w2: 132
+        rel_x: 7
+        rel_y: -9
+        connections:
+          1: QLD-22-ROMA_8
+          2: QLD-132-T83-ROMA_8  
+    child_definitions:
+      - def: |
+          d|x11
+          N
+          d|x12
+        voltage_kv: 22
+        rel_x: 2
+        rel_y: -11 
+        connections:
+          11: QLD-22-ROMA_7
+          12: QLD-22-ROMA_8
+        objects:
+        - type: gen
+          metadata:
+            voltage: 22
+            text: Gen
+            info: |
+              Roma PS Unit 7
+          rel_x: 1
+          rel_y: -4
+          connection:
+            1: QLD-22-ROMA_7_gen
+        - type: gen
+          metadata:
+            voltage: 22
+            text: Gen
+            info: |
+              Roma PS Unit 8
+          rel_x: 5
+          rel_y: -4
