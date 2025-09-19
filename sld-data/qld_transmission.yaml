@@ -736,11 +736,11 @@ substations:
           |x16
           17x|
         voltage_kv: 132
-        rel_x: -1
+        rel_x: -10
         rel_y: -10
         connections:
           11: QLD-132-H6-7188
-          12: QLD-132-H6-7188
+          12: QLD-132-H6-7188_1
           13: QLD-132-H6-T20-786
           14: QLD-132-H6-TX2
           15: QLD-132-H6-CAP1
@@ -2420,3 +2420,207 @@ substations:
               Roma PS Unit 8
           rel_x: 5
           rel_y: -4
+  - name: Wivenhoe PS
+    lat: -27.3722572185454 
+    long: 152.63220112334895
+    voltage_kv: 275
+    tags:
+      - Wivenhoe PS
+      - H28
+    def: |
+      N 
+    objects:
+      - type: tx-ud  
+        metadata:
+          w1: 22
+          w2: 275
+        rel_x: -5
+        rel_y: 0
+        connections:
+          1: QLD-22-H28-WHOE2
+          2: QLD-275-H12-H28-824
+      - type: tx-ud  
+        metadata:
+          w1: 22
+          w2: 275
+        rel_x: -1
+        rel_y: 0
+        connections:
+          1: QLD-22-H28-WHOE1
+          2: QLD-275-H12-H28-823
+    child_definitions:
+      - def: |
+          x12
+          N
+          x11
+        voltage_kv: 22
+        rel_x: -6
+        rel_y: -3 
+        connections:
+          11: QLD-22-H28-WHOE1
+          12: QLD-22-H28-WHOE2
+        objects:
+        - type: gen
+          metadata:
+            voltage: 22
+            text: Gen
+            info: |
+              Wivenhoe Unit 2
+          rel_x: 1
+          rel_y: -1
+        - type: gen
+          metadata:
+            voltage: 22
+            text: Gen
+            info: |
+              Wivenhoe Unit 1
+          rel_x: 5
+          rel_y: -1
+  - name: Korenan Tee
+    lat: -24.46522724688502
+    long: 151.66729816893
+    voltage_kv: 132
+    def: |
+     1|2
+     3
+    connections:
+      1: QLD-132-T120-7188/2
+      2: QLD-132-H6-7188
+      3: QLD-132-T166-7188/3
+  - name: Korenan T120
+    lat: -24.462756288001515
+    long: 151.6808722897141
+    voltage_kv: 132
+    tags:
+      - Korenan
+      - T120
+    def: |
+      1x|
+      |2
+      3x|
+    connections:
+      1: QLD-132-T120-TX1
+      2: QLD-132-T120-7188/2
+      3: QLD-132-T120-TX2
+    objects:
+      - type: tx-ud  
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 1
+        rel_y: -7
+        connections:
+          1: QLD-66-T120-TX1
+          2: QLD-132-T120-TX1
+      - type: tx-ud  
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 5
+        rel_y: -7
+        connections:
+          1: QLD-66-T120-TX2
+          2: QLD-132-T120-TX2
+  - name: Granite Creek T166
+    lat: -24.462756288001515
+    long: 151.6808722897141
+    voltage_kv: 132
+    tags:
+      - Granite Creek
+      - T166
+    def: |
+      1|
+      |x2
+      3|
+    connections:
+      1: QLD-132-T166-TX1
+      2: QLD-132-T166-7188/3
+      3: QLD-132-T166-TX2
+    objects:
+      - type: tx-ud  
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 1
+        rel_y: -4
+        connections:
+          1: QLD-66-T166-TX1
+          2: QLD-132-T166-TX1
+      - type: tx-ud  
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 5
+        rel_y: -4
+        connections:
+          1: QLD-66-T166-TX2
+          2: QLD-132-T166-TX2
+  - name: Clayton T121
+    lat: -24.938977962599306 
+    long: 152.36619512623
+    voltage_kv: 132
+    tags:
+      - Clayton
+      - T121
+    def: |
+      1x|
+      |2
+      3x|
+    connections:
+      1: QLD-132-T121-TX1
+      2: QLD-132-T20-T121-7204
+      3: QLD-132-T121-TX2
+    objects:
+      - type: tx-ud  
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 1
+        rel_y: -7
+        connections:
+          1: QLD-66-T121-TX1
+          2: QLD-132-T121-TX1
+      - type: tx-ud  
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 5
+        rel_y: -7
+        connections:
+          1: QLD-66-T121-TX2
+          2: QLD-132-T121-TX2
+  - name: Mungar T123
+    lat: -25.59876866586482 
+    long: 152.59400008093732
+    voltage_kv: 132
+    tags:
+      - Mungar
+      - T123
+    def: |
+      1x|
+      |2
+      3x|
+    connections:
+      1: QLD-132-T123-TX1
+      2: QLD-132-H5-T123-7190
+      3: QLD-132-T123-TX2
+    objects:
+      - type: tx-ud  
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 1
+        rel_y: -7
+        connections:
+          1: QLD-66-T123-TX1
+          2: QLD-132-T123-TX1
+      - type: tx-ud  
+        metadata:
+          w1: 66
+          w2: 132
+        rel_x: 5
+        rel_y: -7
+        connections:
+          1: QLD-66-T123-TX2
+          2: QLD-132-T123-TX2
+
